@@ -11,11 +11,11 @@ INSERT INTO public.products (name, description, price, category, image_url, stoc
 
 -- Insert sample testimonials
 INSERT INTO public.testimonials (name, company, content, rating, image_url, is_featured) VALUES
-('Ahmad Rizki', 'PT. Teknologi Maju', 'Yilzi Digital Solutions memberikan layanan yang sangat profesional. Website kami sekarang terlihat modern dan performa sangat baik!', 5, '/images/testimonial-1.jpg', true),
-('Sari Dewi', 'Toko Online Berkah', 'Tim Yilzi sangat membantu dalam mengembangkan toko online kami. Penjualan meningkat 300% setelah menggunakan layanan mereka.', 5, '/images/testimonial-2.jpg', true),
-('Budi Santoso', 'Startup InnovateTech', 'Aplikasi mobile yang dikembangkan Yilzi sangat user-friendly dan stabil. Highly recommended!', 5, '/images/testimonial-3.jpg', true),
-('Maya Putri', 'Klinik Sehat Sentosa', 'Digital marketing package dari Yilzi membantu klinik kami mendapatkan lebih banyak pasien. ROI sangat memuaskan!', 4, '/images/testimonial-4.jpg', false),
-('Eko Prasetyo', 'CV. Mitra Sukses', 'Brand identity yang dibuat Yilzi sangat mencerminkan visi perusahaan kami. Terima kasih atas kerja sama yang baik!', 5, '/images/testimonial-5.jpg', false);
+('Requime BoostID', 'Shop. Digitalz', 'Yilzi Digital Solutions memberikan layanan yang sangat profesional. Website kami sekarang terlihat modern dan performa sangat baik!', 5, '/images/testimonial-1.jpg', true),
+('Rifki Hermawan', 'Mahasiswa', 'Tim Yilzi sangat membantu dalam mengembangkan toko online kami. Penjualan meningkat 300% setelah menggunakan layanan mereka.', 5, '/images/testimonial-2.jpg', true),
+('Danz Shop', 'Jb akun Game', 'Aplikasi mobile yang dikembangkan Yilzi sangat user-friendly dan stabil. Highly recommended!', 5, '/images/testimonial-3.jpg', true),
+('Qinday Shop', 'Hosting Marketplace', 'Digital marketing package dari Yilzi membantu klinik kami mendapatkan lebih banyak pasien. ROI sangat memuaskan!', 4, '/images/testimonial-4.jpg', false),
+('FadilJb', 'Shop. Online', 'Brand identity yang dibuat Yilzi sangat mencerminkan visi perusahaan kami. Terima kasih atas kerja sama yang baik!', 5, '/images/testimonial-5.jpg', false);
 
 -- Insert sample daily analytics (last 30 days)
 INSERT INTO public.daily_analytics (date, total_visitors, unique_visitors, page_views, new_orders, total_sales, conversion_rate)

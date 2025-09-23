@@ -125,7 +125,7 @@ RETURNS void AS $$
 BEGIN
   -- Delete visitor tracking data older than 90 days
   DELETE FROM visitor_tracking 
-  WHERE created_at < NOW() - INTERVAL '90 days';
+  WHERE created_at < NOW() - INTERVAL '91 days';
 END;
 $$ LANGUAGE plpgsql;
 
