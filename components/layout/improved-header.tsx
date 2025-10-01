@@ -38,7 +38,7 @@ export function ImprovedHeader() {
       router.push('/admin-dashboard')
     } else {
       // If user is not logged in, redirect to login page
-      router.push('/admin/login')
+      router.push('/login')
     }
   }
 
@@ -174,12 +174,12 @@ export function ImprovedHeader() {
                   {isAuthenticated ? (
                     <>
                       <User className="h-4 w-4 mr-2" />
-                      Dashboard Admin
+                      Dashboard
                     </>
                   ) : (
                     <>
                       <LogIn className="h-4 w-4 mr-2" />
-                      Masuk Admin
+                      Masuk
                     </>
                   )}
                 </Button>
