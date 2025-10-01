@@ -2,17 +2,21 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Search, User, Moon, Sun } from "lucide-react"
+import { Menu, Search, User, Moon, Sun, LogIn } from "lucide-react"
 import { shopConfig } from "@/lib/config"
 import { useCartStore } from "@/lib/cart-store"
 import { ShoppingCartComponent } from "@/components/cart/shopping-cart"
+import { useAuth } from "@/lib/auth"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
   const { totalItems } = useCartStore()
+  const { isAuthenticated, user } = useAuth()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +29,16 @@ export function Navigation() {
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode)
     document.documentElement.classList.toggle("dark")
+  }
+
+  const handleProfileClick = () => {
+    if (isAuthenticated) {
+      // If user is logged in, redirect to admin dashboard
+      router.push('/admin-dashboard')
+    } else {
+      // If user is not logged in, redirect to login page
+      router.push('/admin/login')
+    }
   }
 
   const navItems = [
@@ -91,9 +105,11 @@ export function Navigation() {
             <Button
               variant="ghost"
               size="icon"
+              onClick={handleProfileClick}
               className="hidden md:flex hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 rounded-xl"
+              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login to Admin"}
             >
-              <User className="h-5 w-5" />
+              {isAuthenticated ? <User className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
             </Button>
 
             <Sheet>
@@ -124,10 +140,20 @@ export function Navigation() {
                     </Button>
                     <Button
                       variant="outline"
+                      onClick={handleProfileClick}
                       className="w-full border-blue-500/50 text-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 bg-transparent"
                     >
-                      <User className="h-4 w-4 mr-2" />
-                      Masuk / Daftar
+                      {isAuthenticated ? (
+                        <>
+                          <User className="h-4 w-4 mr-2" />
+                          Dashboard Admin
+                        </>
+                      ) : (
+                        <>
+                          <LogIn className="h-4 w-4 mr-2" />
+                          Masuk Admin
+                        </>
+                      )}
                     </Button>
                   </div>
                 </div>

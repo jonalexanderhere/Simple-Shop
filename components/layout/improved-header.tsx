@@ -2,16 +2,20 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ShoppingCart, Menu, X, Moon, Sun, Search, User } from "lucide-react"
+import { ShoppingCart, Menu, X, Moon, Sun, Search, User, LogIn } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
+import { useAuth } from "@/lib/auth"
 
 export function ImprovedHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(true)
   const { items } = useCart()
+  const { isAuthenticated, user, logout } = useAuth()
+  const router = useRouter()
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0)
 
@@ -26,6 +30,21 @@ export function ImprovedHeader() {
   const toggleTheme = () => {
     setIsDarkMode(!isDarkMode)
     document.documentElement.classList.toggle("dark")
+  }
+
+  const handleProfileClick = () => {
+    if (isAuthenticated) {
+      // If user is logged in, redirect to admin dashboard
+      router.push('/admin-dashboard')
+    } else {
+      // If user is not logged in, redirect to login page
+      router.push('/admin/login')
+    }
+  }
+
+  const handleLogout = async () => {
+    await logout()
+    router.push('/')
   }
 
   const navItems = [
@@ -109,9 +128,11 @@ export function ImprovedHeader() {
             <Button
               variant="ghost"
               size="icon"
+              onClick={handleProfileClick}
               className="hidden md:flex hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 rounded-xl"
+              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login to Admin"}
             >
-              <User className="h-5 w-5" />
+              {isAuthenticated ? <User className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
             </Button>
 
             {/* Mobile Menu Button */}
@@ -147,10 +168,20 @@ export function ImprovedHeader() {
                 </Button>
                 <Button
                   variant="outline"
+                  onClick={handleProfileClick}
                   className="w-full border-blue-500/50 text-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 bg-transparent"
                 >
-                  <User className="h-4 w-4 mr-2" />
-                  Masuk / Daftar
+                  {isAuthenticated ? (
+                    <>
+                      <User className="h-4 w-4 mr-2" />
+                      Dashboard Admin
+                    </>
+                  ) : (
+                    <>
+                      <LogIn className="h-4 w-4 mr-2" />
+                      Masuk Admin
+                    </>
+                  )}
                 </Button>
               </div>
             </nav>
