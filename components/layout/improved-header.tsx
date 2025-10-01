@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ShoppingCart, Menu, X, Moon, Sun, Search, User, LogIn } from "lucide-react"
+import { ShoppingCart, Menu, X, Moon, Sun, Search, User, LogIn, UserPlus } from "lucide-react"
 import { useCart } from "@/components/cart/cart-context"
 import { useAuth } from "@/lib/auth"
 
@@ -125,12 +125,25 @@ export function ImprovedHeader() {
               </Button>
             </Link>
 
+            {!isAuthenticated && (
+              <Link href="/register">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hidden md:flex hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 rounded-xl"
+                  title="Create Account"
+                >
+                  <UserPlus className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
+
             <Button
               variant="ghost"
               size="icon"
               onClick={handleProfileClick}
               className="hidden md:flex hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 rounded-xl"
-              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login to Admin"}
+              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login"}
             >
               {isAuthenticated ? <User className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
             </Button>
@@ -166,6 +179,19 @@ export function ImprovedHeader() {
                   <Search className="h-4 w-4 mr-2" />
                   Cari Produk
                 </Button>
+                
+                {!isAuthenticated && (
+                  <Link href="/register">
+                    <Button
+                      variant="outline"
+                      className="w-full border-green-500/50 text-green-300 hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 bg-transparent"
+                    >
+                      <UserPlus className="h-4 w-4 mr-2" />
+                      Daftar
+                    </Button>
+                  </Link>
+                )}
+                
                 <Button
                   variant="outline"
                   onClick={handleProfileClick}

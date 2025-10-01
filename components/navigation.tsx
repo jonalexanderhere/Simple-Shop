@@ -5,7 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Search, User, Moon, Sun, LogIn } from "lucide-react"
+import { Menu, Search, User, Moon, Sun, LogIn, UserPlus } from "lucide-react"
 import { shopConfig } from "@/lib/config"
 import { useCartStore } from "@/lib/cart-store"
 import { ShoppingCartComponent } from "@/components/cart/shopping-cart"
@@ -102,12 +102,25 @@ export function Navigation() {
 
             <ShoppingCartComponent />
 
+            {!isAuthenticated && (
+              <Link href="/register">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="hidden md:flex hover:bg-green-500/20 hover:text-green-400 transition-all duration-300 rounded-xl"
+                  title="Create Account"
+                >
+                  <UserPlus className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
+
             <Button
               variant="ghost"
               size="icon"
               onClick={handleProfileClick}
               className="hidden md:flex hover:bg-blue-500/20 hover:text-blue-400 transition-all duration-300 rounded-xl"
-              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login to Admin"}
+              title={isAuthenticated ? `Logged in as ${user?.email}` : "Login"}
             >
               {isAuthenticated ? <User className="h-5 w-5" /> : <LogIn className="h-5 w-5" />}
             </Button>
@@ -138,6 +151,19 @@ export function Navigation() {
                       <Search className="h-4 w-4 mr-2" />
                       Cari Produk
                     </Button>
+                    
+                    {!isAuthenticated && (
+                      <Link href="/register">
+                        <Button
+                          variant="outline"
+                          className="w-full border-green-500/50 text-green-300 hover:bg-green-500/10 hover:border-green-400 transition-all duration-300 bg-transparent"
+                        >
+                          <UserPlus className="h-4 w-4 mr-2" />
+                          Daftar
+                        </Button>
+                      </Link>
+                    )}
+                    
                     <Button
                       variant="outline"
                       onClick={handleProfileClick}
@@ -146,12 +172,12 @@ export function Navigation() {
                       {isAuthenticated ? (
                         <>
                           <User className="h-4 w-4 mr-2" />
-                          Dashboard Admin
+                          Dashboard
                         </>
                       ) : (
                         <>
                           <LogIn className="h-4 w-4 mr-2" />
-                          Masuk Admin
+                          Masuk
                         </>
                       )}
                     </Button>
