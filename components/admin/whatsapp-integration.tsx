@@ -45,7 +45,7 @@ export function WhatsAppIntegration() {
   const [phoneNumber, setPhoneNumber] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [whatsappSettings, setWhatsappSettings] = useState({
-    businessNumber: "6281234567890",
+    businessNumber: "6282181183590",
     businessName: "JonsStore",
     autoReply: true,
     workingHours: "09:00-21:00",

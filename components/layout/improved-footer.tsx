@@ -144,7 +144,7 @@ export function ImprovedFooter() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <p className="text-blue-100">+62 123 456 7890</p>
+                <p className="text-blue-100">+62 821 8118 3590</p>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />

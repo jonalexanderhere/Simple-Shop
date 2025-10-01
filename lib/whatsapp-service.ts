@@ -25,7 +25,7 @@ interface WhatsAppMessageData {
 }
 
 export class WhatsAppService {
-  private static readonly WHATSAPP_NUMBER = "6281234567890" // Replace with actual business WhatsApp number
+  private static readonly WHATSAPP_NUMBER = "6282181183590" // JonsStore WhatsApp number
   private static readonly BUSINESS_NAME = "JonsStore"
 
   static generateOrderMessage(data: WhatsAppMessageData): string {

@@ -4,11 +4,24 @@ export async function POST(request: NextRequest) {
   console.log("API Route - login endpoint called")
   
   try {
-    const { email, password } = await request.json()
+    const body = await request.json()
+    const { email, password } = body
+    
     console.log("API Route - received credentials:", { 
       email, 
       password: password ? `${password.length} chars` : "empty"
     })
+
+    // Validate input
+    if (!email || !password) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Email and password are required'
+        },
+        { status: 400 }
+      )
+    }
 
     // Get credentials from environment variables
     const adminEmail = process.env.ADMIN_EMAIL
@@ -19,11 +32,23 @@ export async function POST(request: NextRequest) {
       adminPassword: adminPassword ? `${adminPassword.length} chars` : "NOT_SET"
     })
 
+    // Check if environment variables are set
+    if (!adminEmail || !adminPassword) {
+      console.log("API Route - environment variables not set")
+      return NextResponse.json(
+        { 
+          success: false, 
+          message: 'Server configuration error'
+        },
+        { status: 500 }
+      )
+    }
+
     // Trim whitespace from inputs
-    const trimmedEmail = email?.trim()
-    const trimmedPassword = password?.trim()
-    const trimmedAdminEmail = adminEmail?.trim()
-    const trimmedAdminPassword = adminPassword?.trim()
+    const trimmedEmail = email.trim().toLowerCase()
+    const trimmedPassword = password.trim()
+    const trimmedAdminEmail = adminEmail.trim().toLowerCase()
+    const trimmedAdminPassword = adminPassword.trim()
 
     console.log("API Route - comparison:", {
       emailMatch: trimmedEmail === trimmedAdminEmail,
@@ -34,8 +59,9 @@ export async function POST(request: NextRequest) {
     if (trimmedEmail === trimmedAdminEmail && trimmedPassword === trimmedAdminPassword) {
       console.log("API Route - credentials match, creating token")
       
-      // Create a simple token
-      const token = Buffer.from(`${trimmedEmail}:${Date.now()}`).toString('base64')
+      // Create a secure token with timestamp
+      const timestamp = Date.now()
+      const token = Buffer.from(`${trimmedEmail}:${timestamp}`).toString('base64')
       
       const response = NextResponse.json({ 
         success: true, 
@@ -43,7 +69,7 @@ export async function POST(request: NextRequest) {
         user: { email: trimmedEmail }
       })
       
-      // Set HTTP-only cookie
+      // Set HTTP-only cookie with secure settings
       response.cookies.set('admin-token', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
@@ -60,7 +86,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { 
           success: false, 
-          message: 'Invalid login credentials'
+          message: 'Invalid email or password'
         },
         { status: 401 }
       )

@@ -7,7 +7,7 @@ export const shopConfig = {
     favicon: "/favicon.ico",
   },
   contact: {
-    whatsapp: "6281359123789",
+    whatsapp: "6282181183590",
     whatsappBot: "6285185926872",
     telegram: "@jonsstore",
     github: "jonalexanderhere",
