@@ -229,7 +229,7 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: "yilzi-cart-storage",
+      name: "jonsstore-cart-storage",
       partialize: (state) => ({
         items: state.items,
         sessionId: state.sessionId,

@@ -26,7 +26,7 @@ export default function TestimonialsPage() {
             <Badge className="mb-6 px-4 py-2 bg-blue-500/20 text-blue-300 border-blue-500/30">Testimoni Klien</Badge>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 gradient-text">Cerita Sukses Klien</h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-              Dengarkan langsung dari klien kami tentang pengalaman menggunakan layanan Yilzi Digital Solutions
+              Dengarkan langsung dari klien kami tentang pengalaman menggunakan layanan JonsStore Digital Solutions
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
               {stats.map((stat, index) => {

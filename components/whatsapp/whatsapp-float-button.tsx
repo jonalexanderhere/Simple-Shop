@@ -47,7 +47,7 @@ export function WhatsAppFloatButton() {
                     <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse" />
                   </div>
                   <div>
-                    <CardTitle className="text-white text-lg">YilziShop Support</CardTitle>
+                    <CardTitle className="text-white text-lg">JonsStore Support</CardTitle>
                     <CardDescription className="text-green-200 flex items-center">
                       <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
                       Online sekarang

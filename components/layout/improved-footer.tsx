@@ -17,7 +17,7 @@ export function ImprovedFooter() {
               <Mail className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent">
-              Stay Updated with Yilzi
+              Stay Updated with JonsStore
             </h3>
             <p className="text-blue-100 mb-8 text-lg">
               Get the latest updates on our digital solutions and exclusive offers
@@ -50,7 +50,7 @@ export function ImprovedFooter() {
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full opacity-75" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-white bg-clip-text text-transparent">
-                Yilzi
+                JonsStore
               </span>
             </div>
             <p className="text-blue-100 leading-relaxed">
@@ -148,7 +148,7 @@ export function ImprovedFooter() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <p className="text-blue-100">hello@yilzi.com</p>
+                <p className="text-blue-100">hello@jonsstore.com</p>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@ export function ImprovedFooter() {
       {/* Bottom Footer */}
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-blue-200 text-sm">© 2024 Yilzi Digital Solutions. All rights reserved.</p>
+          <p className="text-blue-200 text-sm">© 2024 JonsStore Digital Solutions. All rights reserved.</p>
           <div className="flex space-x-6 text-sm">
             <Link href="/privacy" className="text-blue-200 hover:text-blue-400 transition-colors duration-200">
               Privacy Policy

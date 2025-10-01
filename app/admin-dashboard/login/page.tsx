@@ -132,7 +132,7 @@ export default function AdminLoginPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="pl-10 bg-slate-800/50 border-slate-600 text-white"
-                    placeholder="yilzi@gmail.com"
+                    placeholder="admin@jonsstore.com"
                     required
                   />
                 </div>
@@ -182,8 +182,8 @@ export default function AdminLoginPage() {
             {/* Demo Credentials */}
             <div className="mt-6 p-4 bg-slate-800/30 rounded-lg border border-slate-700">
               <p className="text-sm text-slate-400 mb-2">Demo Credentials:</p>
-              <p className="text-sm text-slate-300">Email: yilzi@gmail.com</p>
-              <p className="text-sm text-slate-300">Password: yilzi123</p>
+              <p className="text-sm text-slate-300">Email: admin@jonsstore.com</p>
+              <p className="text-sm text-slate-300">Password: jonsstore123</p>
             </div>
           </CardContent>
         </Card>

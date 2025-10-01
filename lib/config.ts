@@ -1,6 +1,6 @@
 export const shopConfig = {
   shop: {
-    name: "Yilzi",
+    name: "JonsStore",
     tagline: "Digital Solutions & Services Provider",
     description: "Menyediakan berbagai layanan digital berkualitas tinggi untuk kebutuhan bisnis dan personal Anda",
     logo: "/images/logo.png",
@@ -9,10 +9,10 @@ export const shopConfig = {
   contact: {
     whatsapp: "6281359123789",
     whatsappBot: "6285185926872",
-    telegram: "@yilziii",
-    github: "YilziiHCT",
-    youtube: "Yilziii",
-    instagram: "yilzi_dominan",
+    telegram: "@jonsstore",
+    github: "jonalexanderhere",
+    youtube: "JonsStore",
+    instagram: "jonsstore",
     whatsappGroup: "https://chat.whatsapp.com/group-link",
     telegramGroup: "https://t.me/group-link",
     whatsappChannel: "https://whatsapp.com/channel/link",

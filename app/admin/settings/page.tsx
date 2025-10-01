@@ -26,8 +26,8 @@ export default function SettingsPage() {
     siteName: shopConfig.shop.name,
     siteTagline: shopConfig.shop.tagline,
     siteDescription: shopConfig.shop.description,
-    siteUrl: "https://yilzi.com",
-    adminEmail: "admin@yilzi.com",
+    siteUrl: "https://jonsstore.com",
+    adminEmail: "admin@jonsstore.com",
 
     // Contact Settings
     whatsapp: shopConfig.contact.whatsapp,
@@ -56,7 +56,7 @@ export default function SettingsPage() {
     darkMode: true,
 
     // SEO Settings
-    metaTitle: "Yilzi - Digital Solutions Provider",
+    metaTitle: "JonsStore - Digital Solutions Provider",
     metaDescription: "Penyedia solusi digital terdepan untuk kebutuhan bisnis Anda",
     metaKeywords: "digital solutions, web development, bot whatsapp, hosting",
     googleAnalytics: "",

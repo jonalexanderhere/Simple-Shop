@@ -130,7 +130,7 @@ export function AdminDashboard() {
               <div className="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">Y</span>
               </div>
-              <h1 className="text-xl font-bold text-white">Yilzi Admin</h1>
+              <h1 className="text-xl font-bold text-white">JonsStore Admin</h1>
             </div>
           </div>
           <Button variant="ghost" onClick={handleLogout} className="text-white hover:bg-red-500/20 hover:text-red-400">

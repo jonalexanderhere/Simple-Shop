@@ -59,7 +59,7 @@ export const useCart = create<CartStore>()(
       },
     }),
     {
-      name: "yilzi-cart",
+      name: "jonsstore-cart",
     },
   ),
 )

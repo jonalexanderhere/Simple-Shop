@@ -53,7 +53,7 @@ export function ImprovedHeader() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300" />
             </div>
             <span className="font-display font-bold text-2xl bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-400 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-indigo-300 transition-all duration-300">
-              Yilzi
+              JonsStore
             </span>
           </Link>
 

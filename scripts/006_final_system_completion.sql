@@ -177,7 +177,7 @@ CREATE TRIGGER trigger_notify_new_order
 -- Final system status check
 DO $$
 BEGIN
-  RAISE NOTICE 'Yilzi Digital Solutions database setup completed successfully!';
+  RAISE NOTICE 'JonsStore Digital Solutions database setup completed successfully!';
   RAISE NOTICE 'Tables created: %', (SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public');
   RAISE NOTICE 'Functions created: %', (SELECT COUNT(*) FROM information_schema.routines WHERE routine_schema = 'public');
   RAISE NOTICE 'System is ready for production use.';

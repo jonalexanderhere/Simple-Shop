@@ -1,4 +1,4 @@
--- Create comprehensive database schema for Yilzi Digital Solutions
+-- Create comprehensive database schema for JonsStore Digital Solutions
 -- Real-time analytics and e-commerce system
 
 -- Users table for customer management

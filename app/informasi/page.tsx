@@ -37,7 +37,7 @@ export default function InformationPage() {
     {
       year: "2020",
       title: "Berdiri",
-      description: "Yilzi didirikan dengan visi menjadi penyedia solusi digital terdepan",
+      description: "JonsStore didirikan dengan visi menjadi penyedia solusi digital terdepan",
     },
     { year: "2021", title: "100+ Klien", description: "Mencapai milestone 100 klien dengan tingkat kepuasan 95%" },
     {
@@ -55,9 +55,9 @@ export default function InformationPage() {
 
   const team = [
     {
-      name: "Yilzi",
+      name: "JonsStore",
       role: "Founder & CEO",
-      description: "Visioner di balik Yilzi dengan pengalaman 8+ tahun di industri teknologi",
+      description: "Visioner di balik JonsStore dengan pengalaman 8+ tahun di industri teknologi",
       image: "/professional-businessman-portrait.png",
     },
     {
@@ -83,7 +83,7 @@ export default function InformationPage() {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-6 px-4 py-2 bg-blue-500/20 text-blue-300 border-blue-500/30">Tentang Kami</Badge>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 gradient-text">Yilzi Digital Solutions</h1>
+            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 gradient-text">JonsStore Digital Solutions</h1>
             <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
               Menyediakan solusi digital terdepan untuk mengembangkan bisnis Anda ke level yang lebih tinggi dengan
               teknologi modern dan layanan profesional
@@ -210,7 +210,7 @@ export default function InformationPage() {
             <Badge className="mb-4 px-4 py-2 bg-blue-500/20 text-blue-300 border-blue-500/30">Perjalanan Kami</Badge>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 gradient-text">Milestone Penting</h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Perjalanan Yilzi dari startup kecil hingga menjadi penyedia solusi digital terpercaya
+              Perjalanan JonsStore dari startup kecil hingga menjadi penyedia solusi digital terpercaya
             </p>
           </div>
 

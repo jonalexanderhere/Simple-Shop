@@ -76,7 +76,7 @@ export default function AdminLoginPage() {
             <Shield className="h-6 w-6 text-blue-400" />
           </div>
           <CardTitle className="text-2xl font-bold text-white">Admin Login</CardTitle>
-          <CardDescription className="text-blue-200">Access the Yilzi admin dashboard</CardDescription>
+          <CardDescription className="text-blue-200">Access the JonsStore admin dashboard</CardDescription>
           {/* Debug info */}
           {debugInfo && (
             <div className="text-xs text-yellow-300 mt-2 p-2 bg-yellow-900/20 rounded">
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
               <Input
                 id="email"
                 type="email"
-                placeholder="yilzi@gmail.com"
+                placeholder="admin@jonsstore.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
