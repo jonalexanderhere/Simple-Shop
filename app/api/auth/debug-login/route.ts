@@ -15,9 +15,9 @@ export async function POST(request: NextRequest) {
       password: password ? `${password.length} chars` : "empty"
     })
 
-    // Get credentials from environment variables
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
+    // Get credentials from environment variables or use hardcoded values
+    const adminEmail = process.env.ADMIN_EMAIL || "admin@jonsstore.com"
+    const adminPassword = process.env.ADMIN_PASSWORD || "jonsstore123"
     
     console.log("DEBUG - Environment variables:", { 
       adminEmail: adminEmail || "NOT_SET", 

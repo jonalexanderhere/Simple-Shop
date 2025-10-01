@@ -26,26 +26,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Get credentials from environment variables
-    const adminEmail = process.env.ADMIN_EMAIL
-    const adminPassword = process.env.ADMIN_PASSWORD
+    // Get credentials from environment variables or use hardcoded values
+    const adminEmail = process.env.ADMIN_EMAIL || "admin@jonsstore.com"
+    const adminPassword = process.env.ADMIN_PASSWORD || "jonsstore123"
     
     console.log("API Route - env variables:", { 
       adminEmail: adminEmail || "NOT_SET", 
       adminPassword: adminPassword ? `${adminPassword.length} chars` : "NOT_SET"
     })
-
-    // Check if environment variables are set
-    if (!adminEmail || !adminPassword) {
-      console.log("API Route - environment variables not set")
-      return NextResponse.json(
-        { 
-          success: false, 
-          message: 'Server configuration error'
-        },
-        { status: 500 }
-      )
-    }
 
     // Trim whitespace from inputs
     const trimmedEmail = email.trim().toLowerCase()
