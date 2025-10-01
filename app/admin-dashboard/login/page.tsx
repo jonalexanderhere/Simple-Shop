@@ -50,9 +50,21 @@ export default function AdminLoginPage() {
     setDebugInfo("Starting login...")
 
     try {
-      console.log("Admin dashboard login - calling login with email:", email)
-      const success = await login(email, password)
-      console.log("Admin dashboard login - login result:", success)
+      console.log("Admin dashboard login - calling admin login with email:", email)
+      
+      // Use direct API call for admin login
+      const response = await fetch('/api/auth/admin-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+      console.log("Admin dashboard login response:", data)
+      
+      const success = data.success
       
       setDebugInfo(`Login result: ${success}`)
       

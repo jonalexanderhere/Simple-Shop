@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
     // Verify token format and validity
     try {
       const decoded = Buffer.from(adminToken.value, 'base64').toString('utf-8')
-      const [email, timestamp] = decoded.split(':')
+      const [email, timestamp, role] = decoded.split(':')
       
       // Check if token is not too old (24 hours)
       const tokenAge = Date.now() - parseInt(timestamp)
@@ -37,7 +37,10 @@ export async function GET(request: NextRequest) {
       console.log("API Route - token valid")
       return NextResponse.json({ 
         isAuthenticated: true,
-        user: { email: email }
+        user: { 
+          email: email,
+          role: role || 'admin'
+        }
       })
     } catch (error) {
       console.log("API Route - invalid token format")
