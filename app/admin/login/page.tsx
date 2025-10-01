@@ -42,13 +42,13 @@ export default function AdminLoginPage() {
     try {
       console.log("Calling admin login with:", { email })
       
-      // Use direct API call for admin login
-      const response = await fetch('/api/auth/admin-login', {
+      // Use unified login system for admin
+      const response = await fetch('/api/auth/unified-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, userType: 'admin' }),
       })
 
       const data = await response.json()

@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Eye, EyeOff, User, Mail, Lock, LogIn } from "lucide-react"
 import { shopConfig } from "@/lib/config"
-import { createClient } from "@/lib/supabase/client"
+import { useAuth } from "@/lib/auth"
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -22,6 +22,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [mounted, setMounted] = useState(false)
   const router = useRouter()
+  const { login } = useAuth()
 
   useEffect(() => {
     setMounted(true)
@@ -41,39 +42,16 @@ export default function LoginPage() {
     setError("")
 
     try {
-      const supabase = createClient()
+      console.log("User login - calling unified login with email:", formData.email)
+      const success = await login(formData.email, formData.password, 'member')
+      console.log("User login - login result:", success)
       
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: formData.email,
-        password: formData.password,
-      })
-
-      if (error) {
-        setError(error.message)
-        return
-      }
-
-      if (data.user) {
-        // Check if user is verified
-        const { data: userProfile } = await supabase
-          .from('users')
-          .select('is_verified, is_active')
-          .eq('email', data.user.email)
-          .single()
-
-        if (userProfile && !userProfile.is_verified) {
-          setError("Please verify your email before logging in. Check your inbox for a verification link.")
-          return
-        }
-
-        if (userProfile && !userProfile.is_active) {
-          setError("Your account has been deactivated. Please contact support.")
-          return
-        }
-
-        // Redirect to dashboard or home page
+      if (success) {
+        console.log("User login - login successful, redirecting to home")
         router.push('/')
         router.refresh()
+      } else {
+        setError("Invalid email or password")
       }
     } catch (error) {
       console.error('Login error:', error)

@@ -11,8 +11,8 @@ export async function POST() {
     message: 'Logged out successfully' 
   })
   
-  // Remove the admin token cookie
-  response.cookies.set('admin-token', '', {
+  // Remove the auth token cookie
+  response.cookies.set('auth-token', '', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',

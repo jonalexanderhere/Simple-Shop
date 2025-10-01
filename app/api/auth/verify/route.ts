@@ -7,10 +7,10 @@ export async function GET(request: NextRequest) {
   console.log("API Route - verify endpoint called")
   
   try {
-    const adminToken = request.cookies.get('admin-token')
-    console.log("API Route - token exists:", !!adminToken)
+    const authToken = request.cookies.get('auth-token')
+    console.log("API Route - token exists:", !!authToken)
     
-    if (!adminToken) {
+    if (!authToken) {
       return NextResponse.json({ 
         isAuthenticated: false,
         user: null
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
     // Verify token format and validity
     try {
-      const decoded = Buffer.from(adminToken.value, 'base64').toString('utf-8')
+      const decoded = Buffer.from(authToken.value, 'base64').toString('utf-8')
       const [email, timestamp, role] = decoded.split(':')
       
       // Check if token is not too old (24 hours)

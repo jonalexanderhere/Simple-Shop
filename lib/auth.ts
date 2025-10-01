@@ -5,8 +5,8 @@ import { persist } from "zustand/middleware"
 
 interface AuthStore {
   isAuthenticated: boolean
-  user: { email: string } | null
-  login: (email: string, password: string) => Promise<boolean>
+  user: { email: string; role: string; isAdmin: boolean; isMember: boolean } | null
+  login: (email: string, password: string, userType?: string) => Promise<boolean>
   logout: () => Promise<void>
   checkAuth: () => Promise<void>
 }
@@ -42,17 +42,21 @@ export const useAuth = create<AuthStore>()(
         }
       },
       
-      login: async (email: string, password: string) => {
+      login: async (email: string, password: string, userType?: string) => {
         console.log("Auth store - starting login process")
         try {
-          console.log("Auth store - making API call to /api/auth/login")
-          const response = await fetch('/api/auth/login', {
+          console.log("Auth store - making API call to /api/auth/unified-login")
+          const response = await fetch('/api/auth/unified-login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             credentials: 'include',
-            body: JSON.stringify({ email: email.trim(), password: password.trim() }),
+            body: JSON.stringify({ 
+              email: email.trim(), 
+              password: password.trim(),
+              userType: userType || 'member'
+            }),
           })
 
           console.log("Auth store - API response status:", response.status)
